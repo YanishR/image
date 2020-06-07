@@ -1,0 +1,22 @@
+Image from image.py is a simple class
+that enables background removal from an
+image.
+
+It's usage is not well written but this is how to use
+it for the moment.
+
+Usage:
+
+In main.py, write the url of the image for the 
+variable img_url.
+
+Then, run main as so:
+    python main.py
+
+If the background removal is poor,
+   with the plotted axis, adjust
+   the frame of the main object.
+
+Comment out line 11 to help with this.
+rectangle's arguments are as such
+(start x, start y, end x, end y)

@@ -1,15 +1,15 @@
 from image import Image
 
+img_url = "pics/img3.jpeg"
 
-img1 = "./pics/img1.jpeg"
+image = Image(img_url)
 
-image = Image(img1)
+# Set rectangle to get more accurate results
+rectangle = (100, 200, 350, 400)
 
-print("Image shape: " + image.getShape().__str__())
+# image.showImage() 
 
-print("Image dtype: ") 
-print(image.getDtype())
+image.removeBackground(rectangle)
 
-
-image.removeBackground()
+image.saveImage()
 image.showFinalImage()

@@ -3,11 +3,13 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-from scipy import ndimage as nd
-
 class Image():
 
     def __init__(self, url):
+        self.url = url
+        self.directory = url[0:url.find('/') + 1]
+        self.file =  url[url.find('/')  + 1:]
+
         self.img = cv2.imread(url)
         self.final = None
 
@@ -17,9 +19,14 @@ class Image():
     def getDtype(self):
         return self.img.dtype
 
-    def showOriginalImage(self):
+    def showImage(self):
         plt.imshow(self.img)
         plt.show()
+
+    def saveImage(self):
+        print()
+        print("Saving Image.")
+        cv2.imwrite(self.directory + "final/" +  self.file, self.final)
 
     def showFinalImage(self):
         if self.final is not None:
@@ -28,9 +35,11 @@ class Image():
         else:
             print("Background removal has not been executed.")
 
-    def removeBackground(self):
+    def removeBackground(self, rectangle):
+
+        # Convert to color
         image_rgb = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
-        rectangle = (10, 300, 400, 500)
+
         # Create initial mask
         mask = np.zeros(image_rgb.shape[:2], np.uint8)
 
