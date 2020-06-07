@@ -20,3 +20,6 @@ If the background removal is poor,
 Comment out line 11 to help with this.
 rectangle's arguments are as such
 (start x, start y, end x, end y)
+
+
+Final images are saved in pics/final
